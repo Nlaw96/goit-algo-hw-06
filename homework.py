@@ -26,4 +26,8 @@ class Record:
 
 class AdressBook(UserDict):
       def add_record(self):
-            
+            self.data[Record.name.value] = value
+      def find(self):
+            pass
+      def delete(self):
+            pass
