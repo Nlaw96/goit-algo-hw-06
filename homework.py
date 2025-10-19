@@ -25,9 +25,25 @@ class Record:
 
 
 class AdressBook(UserDict):
-      def add_record(self):
-            self.data[Record.name.value] = value
-      def find(self):
-            pass
-      def delete(self):
-            pass
+      def add_record(self, record):
+            self.data[record.name.value] = record
+
+
+            
+      def find(self, items):
+            if items in self.data.keys():
+                  return self.data[items]
+            for row in self.data.values():
+                  for phone in row.phones:
+                        if phone == items:
+                              return row
+            return None
+            
+
+      
+      def delete(self, name):
+            if name in self.data.keys():
+                  self.data.pop(name)
+            return None
+      def __str__(self):
+            return super().__str__(self.data)
